@@ -2,6 +2,8 @@ defmodule Tock do
   @moduledoc """
   Tock is a library for mocking remote function calls made by `Task.Supervisor`.
 
+  ## Usage
+
   When working in a distributed system `Task.Supervisor` provides a mechanism
   for calling functions on a remote node.
 
