@@ -5,8 +5,6 @@ defmodule Tock do
   When working in a distributed system `Task.Supervisor` provides a mechanism
   for calling functions on a remote node.
 
-  ## Example
-
       { MyRemoteTaskSupervisor, remote_node }
       |> Task.Supervisor.async(MyRemoteModule, :remote_fun, [])
       |> Task.await()
@@ -14,8 +12,6 @@ defmodule Tock do
   Tock allows you to easily mock a remote application. This eliminates the need
   to mock your own code. Instead, mock the behavior of an application running on
   a remote node.
-
-  ## Example
 
       use ExUnit.Case, async: true
 
