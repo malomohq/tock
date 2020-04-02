@@ -2,6 +2,20 @@
 
 Tock is a library for mocking remote function calls made by `Task.Supervisor`.
 
+## Installation
+
+Just add `tock` to your list of dependencies in `mix.exs`:
+
+```elixir
+def deps do
+  [
+    { :tok, "~> 1.0", only: :test }
+  ]
+end
+```
+
+## Usage
+
 When working in a distributed system `Task.Supervisor` provides a mechanism
 for calling functions on a remote node.
 
