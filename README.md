@@ -9,7 +9,7 @@ Just add `tock` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    { :tok, "~> 1.0", only: :test }
+    { :tock, "~> 1.0", only: :test }
   ]
 end
 ```
