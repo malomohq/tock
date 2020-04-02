@@ -5,8 +5,6 @@ Tock is a library for mocking remote function calls made by `Task.Supervisor`.
 When working in a distributed system `Task.Supervisor` provides a mechanism
 for calling functions on a remote node.
 
-## Example
-
 ```elixir
 { MyRemoteTaskSupervisor, remote_node }
 |> Task.Supervisor.async(MyRemoteModule, :add, [2, 3])
@@ -16,8 +14,6 @@ for calling functions on a remote node.
 Tock allows you to easily mock a remote application. This eliminates the need to
 mock your own code. Instead, mock the behavior of an application running on a
 remote node.
-
-## Example
 
 ```elixir
 use ExUnit.Case, async: true
