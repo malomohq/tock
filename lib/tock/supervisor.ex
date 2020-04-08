@@ -16,7 +16,7 @@ defmodule Tock.Supervisor do
   def start_server(opts) do
     spec = Map.new()
     spec = Map.put(spec, :id, Tock.Server)
-    spec = Map.put(spec, :start, { Tock.Server, :start, [opts] })
+    spec = Map.put(spec, :start, { Tock.Server, :start_link, [opts] })
 
     DynamicSupervisor.start_child(__MODULE__, spec)
   end

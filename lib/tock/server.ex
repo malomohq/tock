@@ -20,9 +20,9 @@ defmodule Tock.Server do
     GenServer.call(tock, { :put_expectation, expectation })
   end
 
-  @spec start(Keyword.t()) :: GenServer.on_start()
-  def start(opts) do
-    GenServer.start(__MODULE__, :ok, name: opts[:name])
+  @spec start_link(Keyword.t()) :: GenServer.on_start()
+  def start_link(opts) do
+    GenServer.start_link(__MODULE__, :ok, name: opts[:name])
   end
 
   #
@@ -31,6 +31,8 @@ defmodule Tock.Server do
 
   @impl true
   def init(:ok) do
+    Process.flag(:trap_exit, true)
+
     { :ok, %{ expectations: %{}, results: %{} } }
   end
 
@@ -77,6 +79,11 @@ defmodule Tock.Server do
   def handle_info({ :DOWN, _ref, :process, owner, _reason }, state) do
     state = update_in(state, [:expectations], &(Map.delete(&1, owner)))
 
+    { :noreply, state }
+  end
+
+  @impl true
+  def handle_info({ :EXIT, _, _ }, state) do
     { :noreply, state }
   end
 
