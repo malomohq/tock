@@ -20,9 +20,9 @@ defmodule Tock.Server do
     GenServer.call(tock, { :put_expectation, expectation })
   end
 
-  @spec start_link(Keyword.t()) :: GenServer.on_start()
-  def start_link(opts) do
-    GenServer.start_link(__MODULE__, :ok, name: opts[:name])
+  @spec start(Keyword.t()) :: GenServer.on_start()
+  def start(opts) do
+    GenServer.start(__MODULE__, :ok, name: opts[:name])
   end
 
   #
